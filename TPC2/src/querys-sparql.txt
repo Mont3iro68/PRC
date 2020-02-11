@@ -1,0 +1,39 @@
+
+1. Nomes dos compositores (Ordem Alfabética)
+
+    select ?nome where {
+        ?id a :Obra .
+    	?id :compositor ?nome
+    }
+    ORDER BY ?nome
+
+
+2. Títulos das obras do tipo marcha de desfile
+
+    select ?titulo where {
+        ?id a :Obra .
+    	?id :tipo "Marcha de Desfile" .
+        ?id :titulo ?titulo
+    }
+
+
+3. Para cada Obra quantas partituras estão catalogadas
+
+    select ?nome (COUNT(?partitura) AS ?partituras )where {
+       ?id a :Obra .
+       ?id :titulo ?nome .
+       ?id :utiliza ?instrumento .
+       ?instrumento :recorre ?partitura .
+    }
+    GROUP BY ?nome ORDER BY ?partituras
+
+
+
+
+4. Quais os títulos das obras com partitura para Bombo
+    select ?nome where {
+       ?id a :Obra .
+       ?id :titulo ?nome .
+       ?id :utiliza ?instrumento .
+       ?instrumento :designação "Bombo" .
+    }
