@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  header.w3-container.w3-blue
+    h1 Try SPARQL Queries
+  select.w3-select.w3-border(id="rep")
+    option(value="" disabled select) Repositório
+    each r in repos
+      if r.title.value
+        option.w3-bar-item.w3-button(value=r.id.value)= r.title.value
+      else 
+        option.w3-bar-item.w3-button(value=r.id.value)= r.id.value
+  div.w3-row
+    div.w3-col.m6.l6
+      form(action="get")
+        label(for="sparql") 
+          h3 SPARQL
+        textarea.w3-input.w3-border(id="sparql" type="text" rows="15")
+      button.w3-btn.w3-blue(onclick=`getResult()`) Submit
+    div.w3-col.m6.l6(id="response")
+      h3 RESPONSE
+
