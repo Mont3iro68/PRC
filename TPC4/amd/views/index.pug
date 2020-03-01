@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	h1.w3-blue.w3-padding 
+		b Arquivo de Música Digital
+	div.w3-container
+		table.w3-table-all
+			tr.w3-blue
+				th ID
+				th Título
+				th Nº Partituras
+			each o in obras
+				tr
+					td= o.id
+					td
+						a(href=`/${o.id}`)= o.tit
+					td= o.nparts

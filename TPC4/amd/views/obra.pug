@@ -1,0 +1,26 @@
+extends layout
+block content
+    h1.w3-blue.w3-padding
+        b Arquivo de Música Digital
+    div.w3-card
+        h3.w3-padding
+            b Título: 
+            =obra.titulo
+
+        h3.w3-padding
+            b Compositor: 
+            =obra.compositor
+
+    div.w3-card.w3-padding
+        h2 
+            b Instrumentos
+        table.w3-table-all
+            tr.w3-blue
+                th Nome
+                th Voz
+                th Partitura
+            each i in obra.instrumentos
+                tr
+                    td= i.nome
+                    td= i.voz
+                    td= i.path
