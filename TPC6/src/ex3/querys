@@ -1,0 +1,35 @@
+1.
+select distinct ?c where {
+    ?c a dbo:Country.
+    FILTER (EXISTS { ?c dbo:capital ?cap}  ).
+    FILTER (NOT EXISTS { ?c dbo:dissolutionDate ?date}).
+    FILTER (NOT EXISTS { ?c dbo:dissolutionYear ?y}). 
+} LIMIT 200
+
+2.
+select distinct ?p where {
+    ?p a dbo:Person .
+    ?p dbo:birthPlace ?c.
+    ?c foaf:name "Barbados"@en
+
+}
+
+3.
+select distinct ?p where {
+    ?p a dbo:Cricketer .
+    ?p dbo:birthPlace ?c.
+    ?c foaf:name "Barbados"@en
+}
+
+
+4.
+select (count (distinct ?p) as ?atores)  where 
+    {?p a dbo:Actor}
+
+
+5.
+select (count (distinct ?movie) as ?movies) where 
+{
+    ?p foaf:name "Christopher Lambert"@en .
+    ?movie dbo:starring ?p
+}

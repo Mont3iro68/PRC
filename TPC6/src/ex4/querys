@@ -1,0 +1,40 @@
+PREFIX : <http://www.chalkos.net/ontologies/2015/pokemon#>
+1.
+select ?p ?name ?type where {
+	?p a :Pokemon .
+    ?p :Name ?name .
+    ?p :HasType ?type .
+    FILTER (lang(?name) = 'en')
+}
+
+2.
+select (count (distinct ?p) as ?numPokemons) where {
+	?p a :Pokemon .
+}
+
+3.
+select (count (?e) as ?evolutions) where {
+    ?p a :Pokemon .
+	?p :Number 5 .
+    ?p (:EvolvesFrom/:EvolvesTo)+ ?e
+}
+
+4.
+select ?e where {
+    ?p a :Pokemon .
+	?p :Name "Eevee"@en .
+    ?p :EvolvesFrom/:EvolvesTo/:Name ?e
+}
+
+5.
+select (count (distinct ?t) AS ?types)  where {
+    ?p a :Pokemon .
+	?p :HasType ?t .
+}
+
+6.
+select ?t (count (distinct ?p) AS ?pokes)  where {
+    ?p a :Pokemon .
+	?p :HasType ?t .
+}
+GROUP BY ?t

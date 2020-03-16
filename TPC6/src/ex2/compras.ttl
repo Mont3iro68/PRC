@@ -1,0 +1,270 @@
+@prefix : <http://prc.di.uminho.pt/compras#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://prc.di.uminho.pt/compras> .
+
+<http://prc.di.uminho.pt/compras> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://prc.di.uminho.pt/compras#compra
+:compra rdf:type owl:ObjectProperty ;
+        owl:inverseOf :éCompradoPor ;
+        rdfs:domain :Cliente ;
+        rdfs:range :Produto .
+
+
+###  http://prc.di.uminho.pt/compras#vende
+:vende rdf:type owl:ObjectProperty ;
+       owl:inverseOf :éVendidoPor ;
+       rdfs:domain :Loja ;
+       rdfs:range :Produto .
+
+
+###  http://prc.di.uminho.pt/compras#éCompradoPor
+:éCompradoPor rdf:type owl:ObjectProperty .
+
+
+###  http://prc.di.uminho.pt/compras#éVendidoPor
+:éVendidoPor rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://prc.di.uminho.pt/compras#codigo
+:codigo rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Produto .
+
+
+###  http://prc.di.uminho.pt/compras#email
+:email rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Cliente ,
+                   :Loja .
+
+
+###  http://prc.di.uminho.pt/compras#nome
+:nome rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Cliente ,
+                  :Loja .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://prc.di.uminho.pt/compras#Cliente
+:Cliente rdf:type owl:Class .
+
+
+###  http://prc.di.uminho.pt/compras#CompraVenda
+:CompraVenda rdf:type owl:Class .
+
+
+###  http://prc.di.uminho.pt/compras#Loja
+:Loja rdf:type owl:Class .
+
+
+###  http://prc.di.uminho.pt/compras#LojaGrande
+:LojaGrande rdf:type owl:Class ;
+            rdfs:subClassOf :Loja .
+
+
+###  http://prc.di.uminho.pt/compras#Produto
+:Produto rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://prc.di.uminho.pt/compras#c1
+:c1 rdf:type owl:NamedIndividual ,
+             :Cliente ,
+             :CompraVenda ;
+    :compra :p1,
+            :p2,
+            :p4,
+            :p10;
+    :email "c1@gmail.com"^^xsd:string ;
+    :nome "Cliente 1"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#c2
+:c2 rdf:type owl:NamedIndividual ,
+             :Cliente ,
+             :CompraVenda ;
+    :compra :p1,
+            :p2,
+            :p3,
+            :p9,
+            :p7;
+    :email "Manuel@gmail.com"^^xsd:string ;
+    :nome "Manuel"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#c3
+:c3 rdf:type owl:NamedIndividual ,
+             :Cliente ,
+             :CompraVenda ;
+    :compra :p3,
+            :p6,
+            :p8,
+            :p9;
+    :email "João@gmail.com"^^xsd:string ;
+    :nome "João"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#c4
+:c4 rdf:type owl:NamedIndividual ,
+             :Cliente ,
+             :CompraVenda ;
+    :compra :p1,
+            :p2,
+            :p5,
+            :p6,
+            :p8;
+    :email "Miguel@gmail.com"^^xsd:string ;
+    :nome "Miguel"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#c5
+:c5 rdf:type owl:NamedIndividual ,
+             :Cliente ,
+             :CompraVenda ;
+    :compra :p1,
+            :p2,
+            :p4,
+            :p5,
+            :p6;
+    :email "Tiago@gmail.com"^^xsd:string ;
+    :nome "Tiago"^^xsd:string .
+
+
+
+###  http://prc.di.uminho.pt/compras#l1
+:l1 rdf:type owl:NamedIndividual ,
+             :CompraVenda ,
+             :Loja ;
+    :email "l1@gmail.com"^^xsd:string ;
+    :nome "Loja 1"^^xsd:string .
+
+
+###  http://prc.di.uminho.pt/compras#l2
+:l2 rdf:type owl:NamedIndividual ,
+             :CompraVenda ,
+             :Loja ;
+    :email "continente@gmail.com"^^xsd:string ;
+    :nome "Continente"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#l3
+:l3 rdf:type owl:NamedIndividual ,
+             :CompraVenda ,
+             :Loja ;
+    :email "pingodoce@gmail.com"^^xsd:string ;
+    :nome "PingoDoce"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#l4
+:l4 rdf:type owl:NamedIndividual ,
+             :CompraVenda ,
+             :Loja ;
+    :email "jumbo@gmail.com"^^xsd:string ;
+    :nome "Jumbo"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#l5
+:l5 rdf:type owl:NamedIndividual ,
+             :CompraVenda ,
+             :Loja ;
+    :email "minipreço@gmail.com"^^xsd:string ;
+    :nome "minipreço"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#p1
+:p1 rdf:type owl:NamedIndividual ,
+             :Produto ;
+    :éVendidoPor :l1 ;
+    :codigo "1"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#p2
+:p2 rdf:type owl:NamedIndividual ,
+             :Produto ;
+    :éVendidoPor :l2 ;
+    :codigo "2"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#p3
+:p3 rdf:type owl:NamedIndividual ,
+             :Produto ;
+    :éVendidoPor :l3 ;
+    :codigo "3"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#p4
+:p4 rdf:type owl:NamedIndividual ,
+             :Produto ;
+    :éVendidoPor :l4 ;
+    :codigo "4"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#p5
+:p5 rdf:type owl:NamedIndividual ,
+             :Produto ;
+    :éVendidoPor :l5 ;
+    :codigo "5"^^xsd:string .
+
+
+###  http://prc.di.uminho.pt/compras#p6
+:p6 rdf:type owl:NamedIndividual ,
+             :Produto ;
+    :éVendidoPor :l1 ,
+                 :l2 ,
+                 :l3 ,
+                 :l4 ,
+                 :l5 ;
+    :codigo "6"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#p7
+:p7 rdf:type owl:NamedIndividual ,
+             :Produto ;
+    :éVendidoPor :l2 ,
+                 :l3 ,
+                 :l4 ,
+                 :l5 ;
+    :codigo "7"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#p7
+:p7 rdf:type owl:NamedIndividual ,
+             :Produto ;
+    :éVendidoPor :l1 ,
+                 :l3 ,
+                 :l4 ,
+                 :l5 ;
+    :codigo "7"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#p8
+:p8 rdf:type owl:NamedIndividual ,
+             :Produto ;
+    :éVendidoPor :l1 ,
+                 :l2 ,
+                 :l4 ,
+                 :l5 ;
+    :codigo "8"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#p9
+:p9 rdf:type owl:NamedIndividual ,
+             :Produto ;
+    :éVendidoPor :l1 ,
+                 :l2 ,
+                 :l3 ,
+                 :l5 ;
+    :codigo "9"^^xsd:string .
+
+###  http://prc.di.uminho.pt/compras#p10
+:p10 rdf:type owl:NamedIndividual ,
+             :Produto ;
+    :éVendidoPor :l1 ,
+                 :l2 ,
+                 :l3 ,
+                 :l4 ;
+    :codigo "10"^^xsd:string .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

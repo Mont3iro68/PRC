@@ -1,0 +1,23 @@
+PREFIX : <http://prc.di.uminho.pt/compras#>
+
+1.
+select distinct ?p where {
+    ?l a :Loja .
+    ?p :éVendidoPor ?l .
+}
+
+2.
+select distinct ?p where {
+	?p a :Produto.
+    ?p :éCompradoPor/:nome "Manuel"
+    
+}
+
+3.
+select distinct ?c where {
+	?l a :Loja.
+    ?l :nome "PingoDoce".
+    ?l :vende ?p.
+    ?p :éCompradoPor/:nome ?c
+    
+}
