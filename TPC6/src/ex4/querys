@@ -23,7 +23,7 @@ select (count (?e) as ?evolutions) where {
 select ?e where {
     ?p a :Pokemon .
 	?p :Name "Eevee"@en .
-    ?p :EvolvesFrom/:EvolvesTo/:Name ?e
+    ?p :EvolvesFrom+/:EvolvesTo+/:Name ?e
 }
 
 5.
