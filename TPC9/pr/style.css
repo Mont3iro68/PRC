@@ -1,0 +1,32 @@
+body {
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+
+td b{
+    padding: 10px;
+}
+
+div{
+    border: 2px solid black;
+    padding: 10px;
+}
+h1{
+    text-align: center;
+}
+table{
+    border: 2px black solid; 
+    width: 100%;
+}
+
+img
+{
+    height: 130px;
+    margin: 30px;
+    vertical-align: middle;
+}
+
+
+a{
+    text-decoration: underline;
+    color: rgb(28, 15, 216);
+}
